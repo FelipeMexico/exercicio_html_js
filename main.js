@@ -1,32 +1,32 @@
+const form = document.getElementById('form-confirm');
 
-const form = document.getElementById('formu');
+let formValid = false;
 
-function campo(campoMenor) {
-    const numero = campoMenor.split(' ');
-    return campoMa > campoMe
+function numbervalid (campoA, campoB){
+    return campoB > campoA;
 }
 
-form.addEventListener('submit' , function(e) {
-    let formEValido = false;
-    e.preventDefault();
+form.addEventListener('submit', function(e){
+    e.preventDefault(); //previne carregamento da página após "submit"
+    let campoA = parseFloat(document.getElementById('menor-a').value);
+    let campoB = parseFloat(document.getElementById('maior-b').value);
 
-    const campoMa = document.getElementById('campo_maior');
-    const campoMe = document.getElementById('campo_menor');
-    const mensagemSucesso = `Esta Correto: ${campoMe} e menor que: ${campoMa}`;
+    const messagesucess = 'Formulario enviado com sucesso! Verificando: <b> Campo A menor que Campo B!</B>';
+    const containermessagesucess = document.querySelector('.success-message');
 
-    formEValido = campo(campoMa.value)
-    if (formEValido) {
-        alert(mensagemSucesso);
+    formValid = numbervalid(campoA, campoB);
+    
+    if (formValid){
+        document.querySelector('.error-message').style.display = 'none';
+        containermessagesucess.innerHTML = messagesucess;
+        containermessagesucess.style.display = 'block';
+        document.querySelector('.error-message').style.display = 'none';
 
-        campoMa.value = '';
-        campoMe.value = '';
+        campoA.value = '';
+        campoB.value = '';
     } else {
-        alert("Desculpe, o Numero esta Incorreto");
-    }
+        alert("O Campo A e maior que o Campo B")
+    }    
 })
-
-
-
-console.log(form);
 
 

@@ -8,12 +8,14 @@
 </head>
 <body>
     <div class="container">
-    <h1>Formulario</h1>
-    <form id="formu">
-        <input type="number" id="campo_menor" placeholder="Campo A" required />
-        <input type="number" id="campo_maior" placeholder="Campo B" required />
-        <button id="btn" type="submit">Enviar Formulario</button>
+    <h1>Formulário</h1>
+    <form id="form-confirm">
+        <input type="number" id="menor-a" placeholder="Campo A" required />
+        <input type="number" id="maior-b" placeholder="Campo B" required />
+        <button type="submit">Validar</button>
+        <p class="error-message"></p>
     </form>
+    <p class="success-message"></p>
     </div>
     <script src="./main.js"></script>
 </body>
